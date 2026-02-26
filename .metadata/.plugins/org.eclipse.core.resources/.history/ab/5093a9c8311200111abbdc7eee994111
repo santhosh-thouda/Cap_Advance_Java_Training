@@ -1,0 +1,25 @@
+package com.capgemini.springbootbasic;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+// @Controller
+@RestController
+public class DemoController {
+	
+	//@GetMapping("/a")
+	// @ResponseBody // it returns the data which is there in a function body, but it will work even if it is not there but then it should return any file(webpage) not data
+//	public String hello() {
+//		return "hello.html";
+//	}
+	
+	// @GetMapping("/a")
+	@PostMapping("/b")
+	@ResponseBody
+	public List<String> hello(){
+		return List.of("Rohit", "Kohli", "Hardik", "Dhoni", "Abhishek", "Ishan Kishan");
+	}
+}

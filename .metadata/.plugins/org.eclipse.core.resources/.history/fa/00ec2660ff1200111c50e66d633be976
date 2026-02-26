@@ -1,0 +1,54 @@
+package com.hms.test;
+
+import com.hms.entity.*;
+import com.hms.util.JPAUtil;
+
+import javax.persistence.EntityManager;
+import java.time.LocalDate;
+
+public class CRUDTest5 {
+
+    public static void main(String[] args) {
+
+        EntityManager em = JPAUtil.getEntityManager();
+        em.getTransaction().begin();
+
+        Doctor doctor1 = new Doctor();
+        doctor1.setName("Dr Adams");
+        doctor1.setSpecialization("Orthopedic");
+        doctor1.setLicenseNo("LIC789");
+
+        Patient p1 = new Patient();
+        p1.setName("Ravi");
+        p1.setDob(LocalDate.of(1998, 5, 10));
+        p1.setBloodGroup("A+");
+        p1.setPhone("9999999999");
+
+        Patient p2 = new Patient();
+        p2.setName("Arun");
+        p2.setDob(LocalDate.of(1995, 3, 15));
+        p2.setBloodGroup("B+");
+        p2.setPhone("8888888888");
+
+        doctor1.addPatient(p1);
+        doctor1.addPatient(p2);
+
+        em.persist(doctor1);
+
+        em.getTransaction().commit();
+
+        // Fetch and display
+        em.getTransaction().begin();
+
+        Doctor savedDoctor = em.find(Doctor.class, doctor1.getId());
+        System.out.println("Doctor: " + savedDoctor.getName());
+
+        savedDoctor.getPatients().forEach(patient ->
+                System.out.println("Patient: " + patient.getName())
+        );
+
+        em.getTransaction().commit();
+        em.close();
+        JPAUtil.close();
+    }
+}

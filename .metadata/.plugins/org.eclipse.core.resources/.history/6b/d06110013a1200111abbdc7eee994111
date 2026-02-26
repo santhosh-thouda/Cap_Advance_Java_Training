@@ -1,0 +1,9 @@
+package com.capgemini.springbootbasic;
+
+public class Engine {
+	String fuel_type;
+	double cc;
+	Engine engine;
+	
+	
+}

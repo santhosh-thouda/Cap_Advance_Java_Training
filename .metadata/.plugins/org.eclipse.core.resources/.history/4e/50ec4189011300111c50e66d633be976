@@ -1,0 +1,5 @@
+package com.fintech.util;
+
+public class JPAUtil {
+
+}

@@ -1,0 +1,5 @@
+package com.fintech.entity;
+
+public class Card {
+
+}

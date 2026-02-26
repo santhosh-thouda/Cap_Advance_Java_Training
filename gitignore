@@ -1,0 +1,22 @@
+# Ignore metadata folder
+.metadata/
+
+# Ignore Eclipse files
+.classpath
+.project
+.settings/
+
+# Ignore IntelliJ files
+.idea/
+*.iml
+
+# Ignore VS Code files
+.vscode/
+
+# Ignore compiled files
+bin/
+target/
+*.class
+
+# Ignore logs
+*.log

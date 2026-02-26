@@ -1,0 +1,33 @@
+package com.hms.test;
+
+import com.hms.entity.*;
+import com.hms.util.JPAUtil;
+
+import javax.persistence.EntityManager;
+import java.time.LocalDate;
+
+public class CRUDTest1 {
+    public static void main(String[] args) {
+
+        EntityManager em = JPAUtil.getEntityManager();
+        em.getTransaction().begin();
+
+        MedicalRecord record = new MedicalRecord();
+        record.setRecordDate(LocalDate.now());
+        record.setDiagnosis("Flu");
+        record.setNotes("Rest 3 days");
+
+        Patient patient = new Patient();
+        patient.setName("Santhosh");
+        patient.setDob(LocalDate.of(2004,7,13));
+        patient.setBloodGroup("O+");
+        patient.setPhone("9876543210");
+        patient.setMedicalRecord(record);
+
+        em.persist(patient);
+
+        em.getTransaction().commit();
+        em.close();
+        JPAUtil.close();
+    }
+}

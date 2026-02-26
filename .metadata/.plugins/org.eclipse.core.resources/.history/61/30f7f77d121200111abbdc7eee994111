@@ -1,0 +1,8 @@
+package com.capgemini.springbootbasic;
+
+@Component
+public class Doctor {
+	public void check() {
+		System.out.println("Temp");
+	}
+}

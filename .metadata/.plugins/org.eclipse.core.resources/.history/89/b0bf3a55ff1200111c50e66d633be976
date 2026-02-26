@@ -1,0 +1,53 @@
+package com.hms.test;
+
+import com.hms.entity.*;
+import com.hms.util.JPAUtil;
+
+import javax.persistence.EntityManager;
+import java.time.LocalDateTime;
+
+public class CRUDTest3 {
+
+    public static void main(String[] args) {
+
+        EntityManager em = JPAUtil.getEntityManager();
+        em.getTransaction().begin();
+
+        Doctor doctor = new Doctor();
+        doctor.setName("Dr Brown");
+        doctor.setSpecialization("Neurology");
+        doctor.setLicenseNo("LIC123");
+
+        Appointment a1 = new Appointment();
+        a1.setAppointDate(LocalDateTime.now());
+        a1.setStatus("SCHEDULED");
+        a1.setReason("Headache");
+
+        Appointment a2 = new Appointment();
+        a2.setAppointDate(LocalDateTime.now().plusDays(1));
+        a2.setStatus("SCHEDULED");
+        a2.setReason("Migraine");
+
+        doctor.getAppointments().add(a1);
+        doctor.getAppointments().add(a2);
+
+        em.persist(doctor);
+
+        em.getTransaction().commit();
+
+        // Update status
+        em.getTransaction().begin();
+        Doctor savedDoctor = em.find(Doctor.class, doctor.getId());
+
+        savedDoctor.getAppointments().forEach(appt -> {
+            if (appt.getStatus().equals("SCHEDULED")) {
+                appt.setStatus("COMPLETED");
+            }
+        });
+
+        em.getTransaction().commit();
+
+        em.close();
+        JPAUtil.close();
+    }
+}

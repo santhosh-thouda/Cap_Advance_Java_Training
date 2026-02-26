@@ -1,0 +1,7 @@
+package com.capgemini.springbootbasic;
+
+public class Car {
+	private String name;
+	private double price;
+	
+}

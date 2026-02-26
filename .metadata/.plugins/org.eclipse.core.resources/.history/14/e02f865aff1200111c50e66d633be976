@@ -1,0 +1,61 @@
+package com.hms.test;
+
+import com.hms.entity.*;
+import com.hms.util.JPAUtil;
+
+import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+public class CRUDTest4 {
+
+    public static void main(String[] args) {
+
+        EntityManager em = JPAUtil.getEntityManager();
+        em.getTransaction().begin();
+
+        // Appointment WITH prescription
+        Prescription prescription = new Prescription();
+        prescription.setMedicines("Paracetamol");
+        prescription.setDosage("Twice a day");
+        prescription.setIssuedDate(LocalDate.now());
+        prescription.setActive(true);
+
+        Appointment appt1 = new Appointment();
+        appt1.setAppointDate(LocalDateTime.now());
+        appt1.setStatus("COMPLETED");
+        appt1.setReason("Fever");
+        appt1.setPrescription(prescription);
+
+        em.persist(appt1);
+
+        // Appointment WITHOUT prescription
+        Appointment appt2 = new Appointment();
+        appt2.setAppointDate(LocalDateTime.now().plusDays(2));
+        appt2.setStatus("SCHEDULED");
+        appt2.setReason("Checkup");
+
+        em.persist(appt2);
+
+        em.getTransaction().commit();
+
+        // Read safely
+        em.getTransaction().begin();
+
+        Appointment a1 = em.find(Appointment.class, appt1.getId());
+        Appointment a2 = em.find(Appointment.class, appt2.getId());
+
+        if (a1.getPrescription() != null) {
+            System.out.println("Appointment 1 Medicine: " +
+                    a1.getPrescription().getMedicines());
+        }
+
+        if (a2.getPrescription() == null) {
+            System.out.println("Appointment 2 has NO prescription");
+        }
+
+        em.getTransaction().commit();
+        em.close();
+        JPAUtil.close();
+    }
+}

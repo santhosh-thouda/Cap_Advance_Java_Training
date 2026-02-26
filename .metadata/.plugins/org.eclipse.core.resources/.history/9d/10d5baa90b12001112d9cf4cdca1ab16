@@ -1,0 +1,12 @@
+package com.capgemini.springbootbasic;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringbootbasicApplication {
+// this is a entry point of spring boot project which is marked as @SpringBootApplication
+	public static void main(String[] args) {
+		SpringApplication.run(SpringbootbasicApplication.class, args);
+	}
+}

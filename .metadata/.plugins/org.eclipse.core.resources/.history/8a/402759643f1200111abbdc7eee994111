@@ -1,0 +1,12 @@
+package com.capgemini.springbootbasic;
+
+public class Car {
+	public String brand;
+	public double price;
+	public Engine engine;
+	
+	@Override
+	public String toString() {
+		return "Car [brand=" + brand + ", price=" + price + ", engine=" + engine + "]";
+	}
+}

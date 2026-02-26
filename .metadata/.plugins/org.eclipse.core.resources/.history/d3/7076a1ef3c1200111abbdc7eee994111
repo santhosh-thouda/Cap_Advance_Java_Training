@@ -1,0 +1,10 @@
+package com.capgemini.springbootbasic;
+
+import java.util.List;
+
+public class College {
+	public String cname;
+	public String location;
+	
+	List<Student> students;
+}
