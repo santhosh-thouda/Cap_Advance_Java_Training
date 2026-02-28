@@ -1,0 +1,5 @@
+package com.capgemini.springbootmvc;
+
+public class DemoController {
+
+}

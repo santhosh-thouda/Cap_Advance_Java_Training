@@ -1,0 +1,7 @@
+spring.application.name=springbootmvc
+
+spring.mvc.view.prefix=/main/WEB-INF/view/
+spring.mvc.view.suffix=.jsp
+
+
+server.port=8080

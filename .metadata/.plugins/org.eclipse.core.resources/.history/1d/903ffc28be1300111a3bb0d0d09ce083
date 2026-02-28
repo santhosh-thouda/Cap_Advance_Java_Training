@@ -1,0 +1,31 @@
+<html>
+
+<head>
+<title>User Register page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+
+</style>
+</head>
+
+<body>
+
+<form action="" class="form">
+
+<H2>User Registration Form</H2>
+
+Name : <input type="text" name="name">
+<br/>
+EmailId : <input type="email" name="email">
+<br/>
+Contact : <input type="number" name="number">
+<br/>
+<input type="submit" name="register">
+<br/>
+
+</form>
+
+</body>
+</html>

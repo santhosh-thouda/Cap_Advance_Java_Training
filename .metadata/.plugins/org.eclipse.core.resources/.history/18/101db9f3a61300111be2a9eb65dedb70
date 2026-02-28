@@ -1,0 +1,8 @@
+package com.capgemini.springbootmvc;
+
+public class DemoController {
+	@GetMapping("/hello")
+	public String getHi() {
+		return "welcome";
+	}
+}

@@ -1,0 +1,16 @@
+spring.application.name=springbootmvc
+
+spring.mvc.view.prefix=/WEB-INF/view/
+spring.mvc.view.suffix=.jsp
+
+
+server.port=8080
+
+spring.datasource.username=postgres
+spring.datasource.password=123456789
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.show-sql=true
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect

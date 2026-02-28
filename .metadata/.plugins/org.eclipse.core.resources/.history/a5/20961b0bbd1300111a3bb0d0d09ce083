@@ -1,0 +1,25 @@
+<html>
+
+<head>
+<title>User Register page</title>
+</head>
+
+<body>
+
+<form action="">
+
+<H1>User Registration Foem</H1>
+<br/>
+Name : <input type="text" name="name">
+<br/>
+EmailId : <input type="email" name="email">
+<br/>
+Contact : <input type="number" name="number">
+<br/>
+<input type="submit" name="register">
+<br/>
+
+</form>
+
+</body>
+</html>

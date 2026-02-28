@@ -1,0 +1,43 @@
+<html>
+
+<head>
+<title>User Register page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+.form{
+{
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="form">
+<form action="">
+
+<H2>User Registration Form</H2>
+
+Name : <input type="text" name="name">
+<br/>
+EmailId : <input type="email" name="email">
+<br/>
+Contact : <input type="number" name="number">
+<br/>
+<input type="submit" name="register">
+<br/>
+
+</form>
+
+</div>
+</body>
+</html>
