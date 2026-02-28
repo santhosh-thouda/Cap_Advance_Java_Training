@@ -63,6 +63,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\santh\eclipse-workspace\feb28_url_shortener_service"/>
 			<item value="C:\Users\santh\eclipse-workspace\feb28_library_management_system"/>
 			<item value="C:\Users\santh\Downloads\feb28_library_management_system"/>
 			<item value="C:\Users\santh\Downloads\springbootmvc"/>
