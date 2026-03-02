@@ -1,0 +1,5 @@
+com\capgemini\classtask\EmployeeService.class
+com\capgemini\classtask\Employee.class
+com\capgemini\classtask\MainApplication.class
+com\capgemini\classtask\EmployeeJpaRepository.class
+com\capgemini\classtask\EmployeeController.class
