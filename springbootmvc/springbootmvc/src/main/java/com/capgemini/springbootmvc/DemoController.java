@@ -1,10 +1,15 @@
 package com.capgemini.springbootmvc;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class DemoController {
@@ -51,5 +56,33 @@ public class DemoController {
 		jpa.save(users);
 		
 		return "success";
+	}
+	
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
+	
+	@GetMapping("/logincheck")
+	public String loginCheck(HttpServletRequest request) {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		Users user = jpa.findByEmailAndPassword(email, password);
+		if(user != null) {
+			return "loginsuccess";
+		}
+		else {
+			return "redirect:login";
+		}
+	}
+	
+	@GetMapping("/hii")
+	public ModelAndView sendData() {
+		ModelAndView mv = new ModelAndView();
+		List<String> list = List.of("Santhu", "Dheeraj", "Uthkarsh", "Shashwat");
+		mv.addObject("msg", list);
+		mv.setViewName("abc");
+		return mv;
 	}
 }

@@ -2,7 +2,7 @@
 <head></head>
 
 <body>
-<form action="logincheck" method="post">
+<form action="logincheck" method="get">
 Email : <input type="email" name="email">
 <br/>
 Password : <input type="password" name="password">
@@ -11,4 +11,4 @@ Password : <input type="password" name="password">
 </form>
 
 </body>
-</html>			
+</html>
